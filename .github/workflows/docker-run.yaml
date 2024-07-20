@@ -28,7 +28,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build Docker image
-      run: docker build -f Dockerfile.debug.full -t poc .
+      run: docker build -f Dockerfile.debug.fix -t poc .
 
     - name: Run Docker container
       run: docker run poc
@@ -41,7 +41,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build Docker image
-      run: docker build -f Dockerfile.debug.full -t poc .
+      run: docker build -f Dockerfile.release.full -t poc .
 
     - name: Run Docker container
       run: docker run poc
