@@ -1,0 +1,9 @@
+FROM rust:1.78.0-bullseye AS builder
+
+COPY . demo
+
+RUN cd demo && cargo install --debug --path .
+
+# Instead of copying the binary over to another image
+
+ENTRYPOINT ["poc"]
