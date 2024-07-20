@@ -19,3 +19,5 @@ The first github actions job (Dockerfile.debug.full), shows this with a failing 
 The second github actions job (Dockerfile.debug.fix) does not copy the binary and shows the CI passing.
 
 The third github actions job (Dockerfile.release.full) does copy the binary but uses release mode, so it also passes.
+
+We note that if `debug-embed` is enabled, then the issue also disappears. This can be confirmed by looking at the CI in this commit: b117604
