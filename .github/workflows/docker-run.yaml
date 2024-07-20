@@ -1,0 +1,21 @@
+name: Build and Run Docker Image
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Build Docker image
+      run: docker build -t poc .
+
+    - name: Run Docker container
+      run: docker run poc

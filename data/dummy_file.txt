@@ -1,0 +1,1 @@
+This is a dummy file whose contents has no relevance in this proof of concept.
