@@ -1,0 +1,12 @@
+FROM rust:1.78.0-bullseye AS builder
+
+COPY . demo
+
+# Install using release profile
+RUN cd demo && cargo install --path .
+
+FROM ubuntu:22.04
+
+COPY --from=builder /usr/local/cargo/bin/poc /usr/local/bin/poc
+
+ENTRYPOINT ["poc"]
