@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build-and-run-debug-mode:
+  build-and-run-debug-full:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,20 @@ jobs:
     - name: Run Docker container
       run: docker run poc
 
-  build-and-run-release-mode:
+  build-and-run-debug-fix:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Build Docker image
+      run: docker build -f Dockerfile.debug.full -t poc .
+
+    - name: Run Docker container
+      run: docker run poc
+
+  build-and-run-release-full:
     runs-on: ubuntu-latest
 
     steps:
